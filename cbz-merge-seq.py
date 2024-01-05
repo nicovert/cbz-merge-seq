@@ -38,4 +38,4 @@ for img in imgArr:
 	send2trash(directoryStr+imgname)
 	print("Moved",imgname,"to recycle bin.")
 
-print("Done")
+wait = input("Done")
