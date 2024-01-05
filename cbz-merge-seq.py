@@ -16,10 +16,11 @@ if not(os.path.isfile("./01.jpg") or os.path.isfile("./01.png") or os.path.isfil
 		zipinfos = zipdata.infolist()
 		for zipinfo in zipinfos:
 			extension = zipinfo.filename[-4:]
-			padi = str(i) if i>99 else "0"+str(i) if i>9 else "00"+str(i)
-			zipinfo.filename = directoryStr + padi + extension
-			zipdata.extract(zipinfo)
-			i += 1
+			if (extension.endswith("jpg") or extension.endswith("png")):
+				padi = str(i) if i>99 else "0"+str(i) if i>9 else "00"+str(i)
+				zipinfo.filename = directoryStr + padi + extension
+				zipdata.extract(zipinfo)
+				i += 1
 		continue
 
 # Merge images into one cbz
