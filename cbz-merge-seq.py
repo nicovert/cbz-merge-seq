@@ -6,7 +6,7 @@ directoryStr = "./"
 directory = os.fsencode(directoryStr)
 
 # Extract images from cbz files if they don't already exist, naming them sequentially
-if not(os.path.isfile("./1.jpg") or os.path.isfile("./1.png")):
+if not(os.path.isfile("./01.jpg") or os.path.isfile("./01.png") or os.path.isfile("./001.jpg") or os.path.isfile("./001.png")):
 	cbzArr = [f for f in os.listdir(directory) if os.fsdecode(f).endswith(".cbz")]
 	i = 1
 	for file in cbzArr:
