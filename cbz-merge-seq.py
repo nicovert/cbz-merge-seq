@@ -1,5 +1,6 @@
 import os
 import zipfile
+from pathlib import Path
 from send2trash import send2trash
 
 directoryStr = "./"
@@ -13,7 +14,7 @@ if not(os.path.isfile("./01.jpg") or os.path.isfile("./01.png") or os.path.isfil
 		filename = os.fsdecode(file)
 		print("Extracting cbz ...",filename)
 		zipdata = zipfile.ZipFile(filename)
-		zipinfos = zipdata.infolist()
+		zipinfos = sorted(zipdata.infolist(), key=lambda x: Path(x.filename).stem)
 		for zipinfo in zipinfos:
 			extension = zipinfo.filename[-4:]
 			if (extension.endswith("jpg") or extension.endswith("png")):
